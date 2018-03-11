@@ -1,15 +1,21 @@
 var sleep = require('system-sleep');
+var count = 1;
 
 function fire() {
   while (1) {
     var punify = function () {
       var twit = require('twit');
       var config = require('./config.js'); // import config file containing keys and tokens
-
       var twitter = new twit(config);
+
+      //The Reply Tweet
       var content = 'Darkness my old friend.';
+     
       twitter.get('search/tweets', {
-        q: 'darkness -filter:retweets',
+        /* Your keywords (can add one more keyword by adding OR) 
+         Example 
+         q: 'darkness OR dark -filter:retweets', */
+        q: 'darkness -filter:retweets', 
         count: 1,
         result_type: 'recent',
         tweet_mode: 'extended',
@@ -32,9 +38,11 @@ function fire() {
     }
     punify(); // call function to punify the tweet
 
-    console.log('tweet');
+    console.log('The bot has tweeted - ' + count);
+
     //3 minutes of sleep before next run (tweet) 
     sleep(180000); //1000 = 1 second, change accordingly
+    count = count + 1;
   }
 }
 
