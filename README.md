@@ -15,18 +15,30 @@ __3. Install Dependencies__
 cd theprobot # Go to the project root directory
 npm install
 ```
- __3. Setting the Keyword and the Reply__
+__4. Create Config File__
+
+In the project root directory create a file `config.js` which contains your twitter app's access keys and tokens. A typical config.js file should look like this -
+```javascript
+//config.js
+
+module.exports = {
+  consumer_key: '', // insert consumer key (API Key)
+  consumer_secret: '',  // insert consumer secret (API Secret)
+  access_token: '', //  insert access token
+  access_token_secret: '' // insert access token secret
+}
+```
+ __5. Setting the Keyword and the Reply__
 
 - Navigate into the directory where you have cloned the repository
 -  Find index.js and open it
 - Inside the file, locate the Reply tweet and keywords comment and change it according to what you require
 
-
-__4. Run An Instance__
+__6. Run the bot__
 ```bash
 cd theprobot # Go to the project root directory
 npm start
 ```
-__5. Changing the tweet speed__
+__7. Changing the tweet speed__
 
 In the index.js; navigate to the end and change the value in the sleep() function call. [ 1000 = 1 second ]
